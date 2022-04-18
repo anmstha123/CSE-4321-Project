@@ -23,6 +23,28 @@
         <button class="btn btn-primary btn-sm">
             Add New Patron
         </button>
+        <h3>Create new Patrons </h3>
+        <form onsubmit = "createNewPatron(event)">
+
+            <label for="FirstName">FirstName</label>
+            <input id="FirstName" type="text" value="Anmol"/>
+            <br />
+
+            <label for="LastName">LastName</label>
+            <input id="LastName" type="text" value="Shrestha" />
+            <br />
+
+            <label for="Email">Email</label>
+            <input id="Email" type="text" value="abc@gmail.com" />
+            <br />
+
+            <label for="OverdueFees">OverdueFees</label>
+            <input id="OverdueFees" type="text" value="5" />
+            <br />
+
+            <input type="submit" value="Submit"/>
+
+        </form>
     </div>
 </div>
 
@@ -38,6 +60,8 @@
                 <th scope="col" style="width: 20%">First</th>
                 <th scope="col" style="width: 25%">Email</th>
                 <th scope="col" style="width: 5%">Fees</th>
+                <th scope="col" style="width: 5%">Delete</th>
+                <th scope="col" style="width: 5%">Edit</th>
             </tr>
             </thead>
             <tbody>
@@ -53,6 +77,16 @@
                         <td>@patron.FirstName</td>
                         <td>@patron.Email</td>
                         <td>$@Math.Round(patron.OverdueFees, 2)</td>
+                        <td scope="col" style="width: 5%">
+                        <button class="btn btn-primary btn-sm">
+                            Delete
+                        </button>
+                        </td>
+                        <td scope="col" style="width: 5%">
+                        <button class="btn btn-primary btn-sm">
+                            Edit
+                        </button>
+                        </td>
                     </tr>
                 </a>
             }
@@ -78,4 +112,24 @@
     </div>
 </div>
 
+<script>
+    var createNewPatron = (event)=>{
+        event.preventDefault();
+
+
+        var patron={
+            Id: 0,
+            FirstName: document.getElementById("FirstName").value,
+            LastName: document.getElementById("LastName").value,
+            Email: document.getElementById("Email").value,
+            LibraryCardId:1234567,
+            Address:"123 Maple St.", 
+            Telephone:"555-123-4567", 
+            HomeLibrary:0,
+            OverdueFees: document.getElementById("OverdueFees").value, 
+            HasBeenMemberFor:5.5
+        }
+        console.log("Partron is", patron);
+    }
+</script>
 

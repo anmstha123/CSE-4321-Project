@@ -130,5 +130,10 @@ namespace LightLib.Service.Patrons {
                     Results = pageOfCheckoutsDto 
             };
         }
+
+        public void Add()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
